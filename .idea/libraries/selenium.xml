@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="selenium">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Downloads/selenium.zip!/" />
+    </SOURCES>
+  </library>
+</component>
