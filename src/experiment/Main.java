@@ -1,4 +1,4 @@
-package test;
+package experiment;
 
 import CrawlData.NftFloor.Binance.BinanceJsonReader;
 import CrawlData.NftFloor.OpenSea.OpenSeaJsonReader;
@@ -8,8 +8,6 @@ import Model.NftFloor.OpenSeaNft;
 import Model.Twitter.Tweet;
 
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
