@@ -1,5 +1,6 @@
 package com.example.backend.JsonRead;
 
+import com.example.backend.CrawlData.Blog.NftBlogCrawl;
 import com.example.backend.CrawlData.NftFloor.Binance.BinanceAPICall1D;
 import com.example.backend.CrawlData.NftFloor.Binance.BinanceAPICall7D;
 import com.example.backend.CrawlData.NftFloor.NiftyGateway.NiftyGateway1DScraper;
@@ -30,6 +31,9 @@ public class FileWriting {
         Rarible7D.call();
         TwitterScraper tweet = new TwitterScraper();
         //tweet.call();
+
+        NftBlogCrawl blog = new NftBlogCrawl();
+        blog.call();
     }
 
 }

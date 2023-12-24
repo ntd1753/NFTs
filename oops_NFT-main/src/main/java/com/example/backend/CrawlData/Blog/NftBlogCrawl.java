@@ -7,12 +7,13 @@ import org.jsoup.nodes.Document;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class NftBlogCrawl {
-
-    public static void main(String[] args) {
-        int numpage = 2;
+    public  void call() {
+        int numpage = 5;
+        List<Article> blogList = new ArrayList<>();
         for (int page = 1; page <= numpage; page++) {
             String url = "https://www.nftically.com/blog/page/" + page + "/";
             Document doc;
@@ -25,35 +26,38 @@ public class NftBlogCrawl {
                         .get();
 
                 List<Article> articlesList = WebPageScraper.scrapeArticles(doc);
-
-                String fileName = "Data//Blog.json";
-                try {
-                    FileWriter writer = new FileWriter(fileName);
-
-                    // Ghi chuỗi JSON vào file
-                    Gson gson = new Gson();
-                    String jsonString = gson.toJson(articlesList);
-                    writer.write(jsonString);
-
-                    // Đóng file
-                    writer.close();
-
-                } catch (IOException e) {
-                    e.printStackTrace();
+                for (Article blog: articlesList){
+                    blogList.add(blog);
                 }
+
 
                 // In ra danh sách bài viết
-                for (Article article : articlesList) {
-                    System.out.println("Title: " + article.getTitle());
-                    System.out.println("Link: " + article.getLink());
-                    System.out.println("Tag : " + article.getTag());
-                    System.out.println("Datetime : " + article.getDate());
-                    System.out.println("---------------------");
-                }
+//                for (Article article : articlesList) {
+//                    System.out.println("Title: " + article.getTitle());
+//                    System.out.println("Link: " + article.getLink());
+//                    System.out.println("Tag : " + article.getTag());
+//                    System.out.println("Datetime : " + article.getDate());
+//                    System.out.println("---------------------");
+//                }
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+        String fileName = "Data//Blog.json";
+        try {
+            FileWriter writer = new FileWriter(fileName);
+
+            // Ghi chuỗi JSON vào file
+            Gson gson = new Gson();
+            String jsonString = gson.toJson(blogList);
+            writer.write(jsonString);
+
+            // Đóng file
+            writer.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
