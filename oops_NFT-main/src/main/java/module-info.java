@@ -34,7 +34,6 @@ module java {
 
     opens com.example.Application to javafx.fxml;
     exports com.example.Application;
-    opens com.example.backend.exceptionhand to com.google.gson;
-//    exports com.example.forntend.controller;
-//    opens com.example.forntend.controller to javafx.fxml;
+    opens com.example.backend.exceptionhand to com.google.gson, javafx.base;
+
 }

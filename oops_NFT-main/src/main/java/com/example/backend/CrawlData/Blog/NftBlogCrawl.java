@@ -1,10 +1,11 @@
 package com.example.backend.CrawlData.Blog;
 
 import com.example.backend.Model.Blog.Article;
-import com.example.backend.Model.Blog.JsonWriter;
+import com.google.gson.Gson;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
@@ -26,7 +27,20 @@ public class NftBlogCrawl {
                 List<Article> articlesList = WebPageScraper.scrapeArticles(doc);
 
                 String fileName = "Data//Blog.json";
-                JsonWriter.writeToJson(articlesList, fileName);
+                try {
+                    FileWriter writer = new FileWriter(fileName);
+
+                    // Ghi chuỗi JSON vào file
+                    Gson gson = new Gson();
+                    String jsonString = gson.toJson(articlesList);
+                    writer.write(jsonString);
+
+                    // Đóng file
+                    writer.close();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
                 // In ra danh sách bài viết
                 for (Article article : articlesList) {
