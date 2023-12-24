@@ -56,7 +56,7 @@ public class NiftyGateway1DScraper implements Scraper {
                     String properties =
                             "\"name\":\"" + name + "\"," +
                             "\"id\":\"" + id + "\", " +
-                            "\"image\":\"" + image + "\"," +
+                            "\"url\":\"" + image + "\"," +
                             "\"floorPrice\":\"" + floorPrice + "\"," +
                             "\"numOfSales\":\"" + numOfSales + "\"," +
                             "\"numOwners\":\"" + numOwners + "\"," +
@@ -88,7 +88,6 @@ public class NiftyGateway1DScraper implements Scraper {
             String jsonString= modifyString(ng.scrape().toString());
             jsonString= "[" + removeNumbersBeforeBrace(jsonString) + "]" ;
             fileWriter.write(jsonString);
-            System.out.println(jsonString);
         } catch (IOException e) {
             e.printStackTrace();
         }

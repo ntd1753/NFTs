@@ -25,7 +25,7 @@ public class TwitterScraper implements Scraper {
         try {
             FirefoxOptions options = new FirefoxOptions();
             System.setProperty("webdriver.gecko.driver"
-                    ,"D:/opp/NFTs/browserDrivers/geckodriver.exe");
+                    ,"browserDrivers/geckodriver.exe");
 
             WebDriver driver = new FirefoxDriver(options);
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -82,7 +82,7 @@ public class TwitterScraper implements Scraper {
         }
         return sex;
     }
-    public static void main(String[] args) {
+    public void call() {
         TwitterScraper ts = new TwitterScraper();
         ts.scrape();
     }

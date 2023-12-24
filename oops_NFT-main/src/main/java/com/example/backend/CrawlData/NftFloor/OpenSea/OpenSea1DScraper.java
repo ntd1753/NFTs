@@ -99,7 +99,7 @@ public class OpenSea1DScraper implements Scraper {
             String fixedString= modifyString(os.scrape().toString());
             fixedString= "[" + removeNumbersBeforeBrace((fixedString)) + "]" ;
             fileWriter.write(fixedString);
-            System.out.println(fixedString);
+            //System.out.println(fixedString);
         } catch (IOException e) {
             e.printStackTrace();
         }

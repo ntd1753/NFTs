@@ -26,9 +26,15 @@ module java {
             eu.hansolo.tilesfx, com.almasb.fxgl.all, dev.failsafe.core;
     opens com.example.backend.Model.NftFloor to com.google.gson, javafx.base;
     opens com.example.backend.Model.Blog to com.google.gson, javafx.base;
-
+    opens com.example.backend.CrawlData.NftFloor.OpenSea to com.google.gson;
     opens com.example.backend.CrawlData.NftFloor.Binance to com.google.gson;
-    opens com.example.forntend to javafx.fxml;
-    exports com.example.forntend;
+    opens com.example.backend.CrawlData.NftFloor.NiftyGateway to com.google.gson;
+    opens com.example.backend.CrawlData.NftFloor.Rarible to com.google.gson;
+    opens com.example.backend.Model.Twitter to com.google.gson, javafx.base;
+
+    opens com.example.Application to javafx.fxml;
+    exports com.example.Application;
     opens com.example.backend.exceptionhand to com.google.gson;
+//    exports com.example.forntend.controller;
+//    opens com.example.forntend.controller to javafx.fxml;
 }
